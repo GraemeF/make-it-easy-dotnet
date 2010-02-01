@@ -2,10 +2,9 @@
 
 namespace MakeItEasy
 {
-/**
- * Syntactic sugar for using Make It Easy test-data builders.
- */
-
+    /// <summary>
+    /// Syntactic sugar for using Make It Easy test-data builders.
+    /// </summary>
     public class MakeItEasyBuilders
     {
         public static Maker<T> a<T>(IInstantiator<T> instantiator, params PropertyValue<T, object>[] propertyProviders)

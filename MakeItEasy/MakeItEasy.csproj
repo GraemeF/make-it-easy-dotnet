@@ -47,7 +47,7 @@
   <ItemGroup>
     <Compile Include="IInstantiator.cs" />
     <Compile Include="IPropertyLookup.cs" />
-    <Compile Include="MakeItEasy.cs" />
+    <Compile Include="MakeItEasyBuilders.cs" />
     <Compile Include="Maker.cs" />
     <Compile Include="Property.cs" />
     <Compile Include="PropertyValue.cs" />

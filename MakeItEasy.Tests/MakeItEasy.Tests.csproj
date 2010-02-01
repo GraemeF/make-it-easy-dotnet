@@ -49,6 +49,9 @@
   <ItemGroup>
     <Compile Include="MakeItEasyTestFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ThingBuilder.cs" />
+    <Compile Include="ThingContainer.cs" />
+    <Compile Include="ThingToMake.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MakeItEasy\MakeItEasy.csproj">
