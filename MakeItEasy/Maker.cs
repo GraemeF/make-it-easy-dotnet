@@ -10,30 +10,30 @@ namespace MakeItEasy
     public class Maker<T> : IPropertyLookup<T>
     {
         private readonly IInstantiator<T> instantiator;
-        private readonly Dictionary<Property<T, object>, Object> values;
+        private readonly Dictionary<Property<T>, Object> values;
 
         /// <summary>
         /// Creates a Maker for objects of a given type with a given initial state.
         /// </summary>
         /// <param name="instantiator">creates the new objects</param>
         /// <param name="propertyValues">define the initial state of the new objects</param>
-        public Maker(IInstantiator<T> instantiator, params PropertyValue<T, object>[] propertyValues)
+        public Maker(IInstantiator<T> instantiator, params PropertyValue<T>[] propertyValues)
         {
             this.instantiator = instantiator;
-            values = new Dictionary<Property<T, object>, object>();
+            values = new Dictionary<Property<T>, object>();
             setPropertyValues(propertyValues);
         }
 
-        private Maker(Maker<T> that, params PropertyValue<T, object>[] propertyValues)
+        private Maker(Maker<T> that, params PropertyValue<T>[] propertyValues)
         {
             instantiator = that.instantiator;
-            values = new Dictionary<Property<T, object>, Object>(that.values);
+            values = new Dictionary<Property<T>, Object>(that.values);
             setPropertyValues(propertyValues);
         }
 
         #region IPropertyLookup<T> Members
 
-        public V valueOf<V>(Property<T, object> property, V defaultValue)
+        public V valueOf<V>(Property<T> property, V defaultValue)
         {
             if (values.ContainsKey(property))
             {
@@ -47,7 +47,7 @@ namespace MakeItEasy
 
         #endregion
 
-        private void setPropertyValues(PropertyValue<T, object>[] propertyValues)
+        private void setPropertyValues(PropertyValue<T>[] propertyValues)
         {
             foreach (var propertyValue in propertyValues)
             {
@@ -75,7 +75,7 @@ namespace MakeItEasy
         /// </summary>
         /// <param name="propertyValues">those initial properties of the new Make that will differ from this Maker</param>
         /// <returns>a new Maker</returns>
-        public Maker<T> but(params PropertyValue<T, object>[] propertyValues)
+        public Maker<T> but(params PropertyValue<T>[] propertyValues)
         {
             return new Maker<T>(this, propertyValues);
         }

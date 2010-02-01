@@ -17,12 +17,12 @@ namespace MakeItEasy.Tests
         [Test]
         public void overridesDefaultValuesWithExplicitProperties()
         {
-            ThingToMake madeThing = make(a(new ThingToMakeInstantiator(), with(name, "Bob"), with(age, 10)));
+            ThingToMake madeThing = make(a(ThingToMake, with(name, "Bob"), with(age, 10)));
 
             Assert.AreEqual("Bob", madeThing.name);
             Assert.AreEqual(10, madeThing.age);
 
-            ThingToMake differentName = make(a(new ThingToMakeInstantiator(), with(name, "Bill")));
+            ThingToMake differentName = make(a(ThingToMake, with(name, "Bill")));
             Assert.AreEqual("Bill", differentName.name);
         }
 
@@ -30,8 +30,8 @@ namespace MakeItEasy.Tests
         public void canUseMakersToInitialisePropertyValues()
         {
             ThingContainer container =
-                make(a(new ThingContainerInstantiator(),
-                       with(thing, a(new ThingToMakeInstantiator(), with(name, "foo")))));
+                make(a(ThingContainer,
+                       with(thing, a(ThingToMake, with(name, "Foo")))));
 
             Assert.AreEqual("Foo", container.thing.name);
         }

@@ -4,20 +4,19 @@
     /// The value of a property.
     /// </summary>
     /// <typeparam name="T">the type of object that has the property</typeparam>
-    /// <typeparam name="V">the type of the value of the property</typeparam>
-    public class PropertyValue<T, V>
+    public class PropertyValue<T>
     {
         /// <summary>
         /// The property
         /// </summary>
-        public readonly Property<T, V> property;
+        public readonly Property<T> property;
 
         /// <summary>
         /// The property's value
         /// </summary>
-        public readonly V value;
+        public readonly object value;
 
-        public PropertyValue(Property<T, V> property, V value)
+        public PropertyValue(Property<T> property, object value)
         {
             this.property = property;
             this.value = value;

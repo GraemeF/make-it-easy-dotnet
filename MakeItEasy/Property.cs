@@ -8,12 +8,11 @@
     /// property would be represented by an instance of Property<Person,String>.
     /// </remarks>
     /// <typeparam name="T">the type of object that has the property</typeparam>
-    /// <typeparam name="V">the type of the value of the property</typeparam>
-    public class Property<T, V>
+    public class Property<T>
     {
-        public static Property<T, V> newProperty()
+        public static Property<T> newProperty()
         {
-            return new Property<T, V>();
+            return new Property<T>();
         }
     }
 }

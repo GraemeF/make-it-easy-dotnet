@@ -7,34 +7,34 @@ namespace MakeItEasy
     /// </summary>
     public class MakeItEasyBuilders
     {
-        public static Maker<T> a<T>(IInstantiator<T> instantiator, params PropertyValue<T, object>[] propertyProviders)
+        public static Maker<T> a<T>(IInstantiator<T> instantiator, params PropertyValue<T>[] propertyProviders)
         {
             return new Maker<T>(instantiator, propertyProviders);
         }
 
-        public static Maker<T> an<T>(IInstantiator<T> instantiator, params PropertyValue<T, object>[] propertyProviders)
+        public static Maker<T> an<T>(IInstantiator<T> instantiator, params PropertyValue<T>[] propertyProviders)
         {
             return new Maker<T>(instantiator, propertyProviders);
         }
 
-        public static PropertyValue<T, V> with<T, V>(Property<T, V> property, V value)
+        public static PropertyValue<T> with<T, V>(Property<T> property, V value)
         {
-            return new PropertyValue<T, V>(property, value);
+            return new PropertyValue<T>(property, value);
         }
 
-        public static PropertyValue<T, V> with<T, V>(V value, Property<T, V> property)
+        public static PropertyValue<T> with<T, V>(V value, Property<T> property)
         {
-            return new PropertyValue<T, V>(property, value);
+            return new PropertyValue<T>(property, value);
         }
 
-        public static PropertyValue<T, V> with<T, V>(Property<T, V> property, Maker<V> valueMaker)
+        public static PropertyValue<T> with<T, V>(Property<T> property, Maker<V> valueMaker)
         {
-            return new PropertyValue<T, V>(property, valueMaker.make());
+            return new PropertyValue<T>(property, valueMaker.make());
         }
 
-        public static PropertyValue<T, V> with<T, V>(Maker<V> valueMaker, Property<T, V> property)
+        public static PropertyValue<T> with<T, V>(Maker<V> valueMaker, Property<T> property)
         {
-            return new PropertyValue<T, V>(property, valueMaker.make());
+            return new PropertyValue<T>(property, valueMaker.make());
         }
 
         public static T make<T>(Maker<T> maker)

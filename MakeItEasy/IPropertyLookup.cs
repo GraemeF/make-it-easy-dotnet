@@ -13,6 +13,6 @@
         /// <param name="property">the property for which a value will be returned</param>
         /// <param name="defaultValue">the default value to use if no value can be found</param>
         /// <returns>the value for the given property, or <var>defaultValue</var> if no value can be found.</returns>
-        V valueOf<V>(Property<T, object> property, V defaultValue);
+        V valueOf<V>(Property<T> property, V defaultValue);
     }
 }
