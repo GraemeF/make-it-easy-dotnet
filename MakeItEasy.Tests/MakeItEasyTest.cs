@@ -8,7 +8,7 @@ namespace MakeItEasy.Tests
         [Test]
         public void usesDefaultPropertyValuesIfNoPropertiesSpecified()
         {
-            ThingToMake madeThing = make(a(new ThingToMakeInstantiator()));
+            ThingToMake madeThing = make(a(ThingToMake));
 
             Assert.AreEqual("Nemo", madeThing.name);
             Assert.AreEqual(99, madeThing.age);
